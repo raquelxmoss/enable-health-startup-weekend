@@ -6,4 +6,11 @@ end
 
 User.all.each do |u|
 	u.skills.create(title: Faker::Lorem.word)
+	u.sent_messages.create(sender_id: u.id, recipient_id: rand(0..User.all.count), body: Faker::Lorem.paragraph, status: 'sent')
 end
+
+skills = [
+	"hair dressing", "computer repair", "lawn mowing",
+	"cleaning", "cooking", 
+
+]
