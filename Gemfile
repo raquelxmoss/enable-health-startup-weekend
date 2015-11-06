@@ -22,6 +22,8 @@ gem 'devise'
 
 gem 'bootstrap-sass'
 
+gem 'pg_search'
+
 
 
 # Use ActiveModel has_secure_password
