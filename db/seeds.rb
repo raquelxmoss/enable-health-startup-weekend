@@ -1,9 +1,9 @@
 10.times do
-	User.create(name: Faker::Name.name, password: 'password', 
+	User.create!(name: Faker::Name.name, password: 'password', 
 							password_confirmation: 'password', address: Faker::Address.street_address,
-							phone: Faker::PhoneNumber.cell_phone)
+							phone: Faker::PhoneNumber.cell_phone, email: Faker::Internet.email)
 end
 
 User.all.each do |u|
-	u.skills.create(skill: Faker::Company.profession)
+	u.skills.create(title: Faker::Lorem.word)
 end
