@@ -47,7 +47,9 @@ private
   end
 
   def listing_params
-    params.require(:listing).permit(:title, :description, :user, :expiration_date, :status, :urgency, :location)
+    { user_id: current_user.id }.merge(
+      params.require(:listing).permit(:title, :description, :user, :expiration_date, :status, :urgency, :location)
+    )
   end
 
 end
