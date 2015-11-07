@@ -12,6 +12,12 @@ class ListingsController < ApplicationController
   end
 
   def update
+    if @listing.update(listing_params)
+      redirect_to listing_path @listing
+    else
+      flash[:error] = @listing.errors.full_messages.join("\n")
+      redirect_to :back
+    end
   end
 
   def new
@@ -19,6 +25,13 @@ class ListingsController < ApplicationController
   end
 
   def create
+    @listing = Listing.new(listing_params)
+    if @listing.save
+      redirect_to listing_path @listing
+    else
+      flash[:error] = @listing.errors.full_messages.join("\n")
+      redirect_to :back
+    end
   end
 
   def destroy
@@ -30,6 +43,10 @@ private
 
   def load_listing
     @listing = Listing.find params.require(:id)
+  end
+
+  def listing_params
+    params.require(:listing).permit(:title, :description, :user, :expiration_date, :status, :urgency, :location)
   end
 
 end
