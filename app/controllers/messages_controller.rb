@@ -1,6 +1,15 @@
 class MessagesController < ApplicationController
 
+	before_filter :check_message_owner, only: [:show]
+	before_filter :load_message, only: [:show]
+
 	def show
+
+	end
+
+	def index
+		@received_messages = current_user.received_messages
+		@sent_messages = current_user.sent_messages
 	end
 
 	def new
@@ -33,4 +42,9 @@ private
 		@message = Message.find(params[:id])
 	end
 
+	def check_message_owner
+		if current_user.id != (@message.recipient_id || @message.sender_id)
+			redirect_to root_path
+		end
+	end
 end
