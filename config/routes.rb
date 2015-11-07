@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :users
   root 'application#index'
+  devise_for :users
 
   resources :listings
   get '/users/:id', to: 'users#show', as: 'user_profile'
