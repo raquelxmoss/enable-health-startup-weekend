@@ -1,7 +1,9 @@
-<%= @user.name %>
-<%= @user.email %>
-<%= simple_format @user.description %>
-<%= @user.city %>
-<%= simple_format @user.address %>
-<%= @user.phone %>
-<%= image_tag @user.avatar.url %>
+<div class="m-user-profile">
+	<%= image_tag @user.avatar.url if @user.avatar.url %>
+	<p><%= @user.name %></p>
+	<p><%= @user.email %></p>
+	<%= simple_format @user.description %>
+	<p><%= @user.city %></p>
+	<%= simple_format @user.address %>
+	<p><%= @user.phone %></p>
+</div>
