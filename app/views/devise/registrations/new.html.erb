@@ -26,8 +26,13 @@
   </div>
 
   <div class="field">
+    <%= f.label :city %><br />
+    <%= f.select :city, User.cities %>
+  </div>
+
+  <div class="field">
     <%= f.label :address %> (optional)<br />
-    <%= f.textarea :address, autocomplete: "off" %>
+    <%= f.text_area :address, autocomplete: "off" %>
   </div>
 
   <div class="field">
