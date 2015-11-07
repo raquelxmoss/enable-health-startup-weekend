@@ -9,6 +9,12 @@ class ApplicationController < ActionController::Base
   def index
   end
 
+  def about
+  end
+
+  def contact
+  end
+
 protected
 
   def configure_permitted_parameters
