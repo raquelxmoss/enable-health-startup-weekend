@@ -1,0 +1,14 @@
+<%= form_for(@listing, url: new_listing_path) do |f| %>
+
+  <%= f.label(:title, "Title:") %>
+  <%= f.text_field(:title) %>
+
+  <%= f.label(:description, "Description:") %>
+  <%= f.text_field(:description) %>
+
+  <%= f.label(:expiration_date, "Expires:") %>
+  <%= f.date_field(:expiration_date) %>
+
+  <%= submit_tag("Submit") %>
+
+<% end %>
