@@ -1,1 +1,2 @@
-<%= render partial: 'form' %>
+<%= render partial: 'form', locals: {path: listing_path(@listing), crud_method: 'PUT' } %>
+<%= link_to 'Back to listing', :back %>
