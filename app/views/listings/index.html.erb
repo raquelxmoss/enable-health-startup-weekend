@@ -1,9 +1,12 @@
 <h2>Listings</h2>
-
-  <ul>
-    <% @listings.each do |l| %>
-      <li>
-        <%= link_to l.title, listing_path(l) %>
-      </li>
-    <% end %>
-  </ul>
+<% @listings.in_groups_of(4, false) do |group| %>
+	<div class="row">
+		<% group.each do |l| %>
+			<div class="col-sm-3">
+	      <h3><%= link_to l.title.titleize, listing_path(l) %></h3>
+	      <p><%= truncate(l.description, length: 100) %></p>
+	      <p><%= link_to 'Find out more >', listing_path(l), class:'btn btn-primary btn-xs' %></p>
+      </div>
+	  <% end %>
+  </div>
+<% end %>
