@@ -17,3 +17,4 @@ protected
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :email, :password, :password_confirmation, :address, :city, :description) }
   end
 end
+
