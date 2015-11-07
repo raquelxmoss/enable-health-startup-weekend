@@ -23,7 +23,7 @@ class ListingsController < ApplicationController
 
   def destroy
     @listing.destroy
-    redirect_to :index
+    redirect_to listings_path
   end
 
 private
