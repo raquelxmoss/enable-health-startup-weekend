@@ -2,5 +2,20 @@
  @import "bootstrap";
 
  body {
- 	padding-top: 60px;
+ 	padding-top: 80px;
  }
+
+ .navbar-brand {
+ 	height: 70px;
+ }
+
+ .navbar-nav .navbar-right ul{
+	height: 85px;
+	vertical-align: middle;
+	padding-top: 15px;
+ }
+
+.navbar-default .navbar-nav > li > a {
+	margin-top: 10px;
+}
+
