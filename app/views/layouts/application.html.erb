@@ -21,18 +21,9 @@
         <%= link_to 'Be-Able', root_path, class: 'navbar-brand'%>
       </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
+      <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li class="hidden">
-            <a href="#page-top"></a>
-          </li>
-          <li class="page-scroll">
-            <a href="/about">About</a>
-          </li>
-          <li class="page-scroll">
-            <a href="/contact">Contact</a>
-          </li>
           <li>
             <%= link_to 'Listings', listings_path %>
           </li>
@@ -44,6 +35,8 @@
           	<li><%= link_to 'Sign up', new_user_registration_path %></li>
           	<li><%= link_to 'Log in', new_user_session_path %></li>
           <% end %>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
         </ul>
       </div>
   </div>

@@ -1,10 +1,12 @@
-<p>People with disabilities getting and giving help</p>
+<div class="col-sm-8 col-sm-offset-2">
+	<h2 style="text-align: center;">People with disabilities getting and giving help</h2>
+	<%= image_tag 'hand-shake.png', class: 'img-responsive center-block' %>
+	<br /><br />
+	<div class="col-sm-6" style="text-align: center">
+		<%= link_to "I would like a helping hand >", new_listing_path, class: 'btn btn-primary btn-lg'  %>
+	</div>
+	<div class="col-sm-6" style="text-align: center">
+		<%= link_to "I can give a hand >", listings_path, class: 'btn btn-primary btn-lg'  %>
+	</div>
+</div>
 
-<body>
-
-  <div class="button-container">
-    <%= link_to "I would like a helping hand", new_listing_path  %>
-    </br>
-    <%= link_to "I can give a hand", listings_path  %>
-  </div>
-</body>

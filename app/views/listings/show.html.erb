@@ -1,18 +1,25 @@
-<h3><%= @listing.title %></h3>
+<div class='col-sm-9'>
+	<h3><%= @listing.title.titleize %></h3>
 
-<%= simple_format @listing.description %>
+	<%= simple_format @listing.description %>
 
-<% if current_user.id != @listing.user.id %>
-	<p>Message this user</p>
-	<%= form_for @message do |f| %>
-		<%= f.hidden_field :recipient_id, value: @listing.user.id %>
-		<p><%= f.text_field :subject %></p>
-		<p><%= f.text_area :body %></p>
-		<%= f.submit 'Send Message' %>
+	<% if current_user.id != @listing.user.id %>
+		<div class="well">
+			<p><strong>Message this user</strong></p>
+			<%= form_for @message do |f| %>
+				<%= f.hidden_field :recipient_id, value: @listing.user.id %>
+				<p>Subject:</p>
+				<p><%= f.text_field :subject, class: 'form-control' %></p>
+				<p>Body:</p>
+				<p><%= f.text_area :body, rows: "10", class: 'form-control' %></p>
+				<%= f.submit 'Send Message', class: 'btn btn-primary pull-right' %>
+				<br /><br />
+			<% end %>
+		</div>
+	<% end %>		
+
+	<% if current_user == @listing.user.id %>
+		<%= link_to 'Delete this listing', listing_path(@listing), method: 'DELETE' %>
+		<%= link_to 'Edit listing', edit_listing_path(@listing) %>
 	<% end %>
-<% end %>		
-
-<% if current_user == @listing.user.id %>
-	<%= link_to 'Delete this listing', listing_path(@listing), method: 'DELETE' %>
-	<%= link_to 'Edit listing', edit_listing_path(@listing) %>
-<% end %>
+</div>
