@@ -1,0 +1,25 @@
+<h2>Received Messages</h2>
+<% if @received_messages.empty? %>
+	<p>No received messages</p>
+<% else %>
+	<% @received_messages.each do |message| %>
+		<div class="well">
+			<p>From: <%= message.sender.name %></p>
+			<p>Subject: <%= message.subject %></p>
+			<%= simple_format message.body %>
+		</div>
+	<% end %>
+<% end %>
+
+<h2>Sent Messages</h2>
+<% if @sent_messages.empty? %>
+	<p>No sent messages</p>
+<% else %>
+	<% @sent_messages.each do |message| %>
+		<div class="well">
+			<p>To: <%= message.recipient.name %></p>
+			<p>Subject: <%= message.subject %></p>
+			<%= simple_format message.body %>
+		</div>
+	<% end %>
+<% end %>

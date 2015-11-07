@@ -1,4 +1,18 @@
 <h3><%= @listing.title %></h3>
+
 <%= simple_format @listing.description %>
-<%= link_to 'Delete this listing', listing_path(@listing), method: 'DELETE' %>
-<%= link_to 'Edit listing', edit_listing_path(@listing) %>
+
+<% if current_user.id != @listing.user.id %>
+	<p>Message this user</p>
+	<%= form_for @message do |f| %>
+		<%= f.hidden_field :recipient_id, value: @listing.user.id %>
+		<p><%= f.text_field :subject %></p>
+		<p><%= f.text_area :body %></p>
+		<%= f.submit 'Send Message' %>
+	<% end %>
+<% end %>		
+
+<% if current_user == @listing.user.id %>
+	<%= link_to 'Delete this listing', listing_path(@listing), method: 'DELETE' %>
+	<%= link_to 'Edit listing', edit_listing_path(@listing) %>
+<% end %>

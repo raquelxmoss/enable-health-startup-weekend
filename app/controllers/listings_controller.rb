@@ -6,6 +6,7 @@ class ListingsController < ApplicationController
   end
 
   def show
+    @message = Message.new
   end
 
   def edit
