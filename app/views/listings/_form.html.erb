@@ -8,7 +8,7 @@
 	  <%= f.text_area :description, rows: "10", class: 'form-control' %><br />
 
 	  <%= f.label(:expiration_date, "Expires:") %>
-
+		<%= f.date_field :expiration_date, class: 'form-control' %><br />
 	  <%= submit_tag "Submit", class: 'btn btn-primary' %>
 	<% end %>
 </div>
