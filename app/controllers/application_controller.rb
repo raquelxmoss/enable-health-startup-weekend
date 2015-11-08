@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
-  before_action :authenticate_user!, except: [:index, :about, :contact]
+  before_action :authenticate_user!, except: [:index, :about, :contact, :search, :get_search_results]
 
   def index
   end
@@ -13,6 +13,14 @@ class ApplicationController < ActionController::Base
   end
 
   def contact
+  end
+
+  def search
+    @results = PgSearch.multisearch(params[:q]) if params[:q]
+  end
+
+  def get_search_results
+    redirect_to search_path q: params[:q]
   end
 
 protected

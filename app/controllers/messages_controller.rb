@@ -13,10 +13,15 @@ class MessagesController < ApplicationController
 	end
 
 	def new
+		if params[:recipient]
+			@message = Message.new(recipient: User.find(params[:recipient]))
+		else
+			@message = Message.new 
+		end
 	end
 
 	def create
-		@message = Message.new(message_params)
+		@message = Message.new(prepare_message_params)
 		if @message.save
 			flash[:notice] = "Thanks! Your message has been sent"
 			redirect_to :back
@@ -32,10 +37,18 @@ class MessagesController < ApplicationController
 	end
 
 private
+
+	def prepare_message_params
+		{sender_id: current_user.id, recipient_id: get_recipient, subject: message_params[:subject], body: message_params[:body]}
+	end
+
+	def get_recipient
+		params[:message][:recipient_id] || 
+		User.find_by_email(params[:message][:recipient]).id
+	end
 	
 	def message_params
-		{sender_id: current_user.id}
-		.merge(params.require(:message).permit(:recipient_id, :subject, :body))
+		params.require(:message).permit(:recipient_id, :subject, :body)
 	end
 
 	def load_message

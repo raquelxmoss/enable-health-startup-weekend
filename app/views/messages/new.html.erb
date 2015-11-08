@@ -1,0 +1,16 @@
+	<div class="well">
+		<%= form_for @message do |f| %>
+			<p>To:</p>
+			<% if @message.recipient %>
+				<p><%= f.text_field :recipient, class: 'form-control', value: @message.recipient.email %></p>
+			<% else %>
+				<p><%= f.text_field :recipient, class: 'form-control'%></p>
+			<% end %>
+			<p>Subject:</p>
+			<p><%= f.text_field :subject, class: 'form-control' %></p>
+			<p>Body:</p>
+			<p><%= f.text_area :body, rows: "10", class: 'form-control' %></p>
+			<%= f.submit 'Send Message', class: 'btn btn-primary pull-right' %>
+			<br /><br />
+		<% end %>
+	</div>
