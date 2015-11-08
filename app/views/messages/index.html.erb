@@ -4,9 +4,12 @@
 <% else %>
 	<% @received_messages.each do |message| %>
 		<div class="well">
-			<p>From: <%= message.sender.name %></p>
+			<%= image_tag message.sender.avatar.url(:thumb), class: 'img-responsive pull-right' %>
+			<p>From: <%= link_to message.sender.name, user_profile_path %></p>
+			<p>To: <%= message.recipient.name %></p>
 			<p>Subject: <%= message.subject %></p>
 			<%= simple_format message.body %>
+			<p> <i><%= message.created_at.strftime("(Sent on %m/%d/%Y at %I:%M%p)") %> </i> </p>
 			<%= link_to 'Reply', new_message_path(recipient: message.sender), class: 'btn btn-primary' %>
 		</div>
 	<% end %>
@@ -18,9 +21,12 @@
 <% else %>
 	<% @sent_messages.each do |message| %>
 		<div class="well">
+			<%= image_tag message.sender.avatar.url(:thumb), class: 'img-responsive pull-right' %>
+			<p>From: <%= message.sender.name %></p>
 			<p>To: <%= message.recipient.name %></p>
 			<p>Subject: <%= message.subject %></p>
 			<%= simple_format message.body %>
+			<p> <i><%= message.created_at.strftime("(Sent on %m/%d/%Y at %I:%M%p)") %> </i> </p>
 		</div>
 	<% end %>
 <% end %>
