@@ -7,7 +7,7 @@
 			<p>From: <%= message.sender.name %></p>
 			<p>Subject: <%= message.subject %></p>
 			<%= simple_format message.body %>
-			<%= link_to 'Reply', new_message_path(recipient: message.recipient), class: 'btn btn-primary' %>
+			<%= link_to 'Reply', new_message_path(recipient: message.sender), class: 'btn btn-primary' %>
 		</div>
 	<% end %>
 <% end %>
