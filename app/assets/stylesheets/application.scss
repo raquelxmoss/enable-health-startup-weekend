@@ -1,6 +1,12 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+ $brand_primary: #44546A;
+
+ h1, h2, h3 {
+ 	color: #F4A524;
+ }
+
  body {
  	padding-top: 80px;
  }
@@ -30,6 +36,11 @@
   border-radius: 6px;
   padding: 20px;
   white-space: nowrap;
+}
+
+.btn-primary {
+	background: $brand_primary;
+	border: none;
 }
 
 a.btn.btn-primary.btn-lg {
