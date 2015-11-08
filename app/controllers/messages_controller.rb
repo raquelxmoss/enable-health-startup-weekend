@@ -43,8 +43,8 @@ private
 	end
 
 	def get_recipient
-		params[:recipient_id] || 
-		User.find_by_email(params[:email]).id
+		params[:message][:recipient_id] || 
+		User.find_by_email(params[:message][:recipient]).id
 	end
 	
 	def message_params
