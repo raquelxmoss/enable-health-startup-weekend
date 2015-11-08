@@ -3,7 +3,6 @@
 			<p>To:</p>
 			<% if @message.recipient %>
 				<p><%= f.text_field :recipient, class: 'form-control', value: @message.recipient.email %></p>
-				<%= console %>
 			<% else %>
 				<p><%= f.text_field :recipient, class: 'form-control'%></p>
 			<% end %>
