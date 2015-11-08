@@ -4,8 +4,10 @@
 <% else %>
 	<% @received_messages.each do |message| %>
 		<div class="well">
-			<%= image_tag message.sender.avatar.url(:thumb), class: 'img-responsive pull-right' %>
-			<p>From: <%= link_to message.sender.name, user_profile_path %></p>
+			<%= link_to user_profile_path(message.sender) do  %>
+				<%= image_tag message.sender.avatar.url(:thumb), class: 'img-responsive pull-right' %>
+			<% end %>
+			<p>From: <%= link_to message.sender.name, user_profile_path(message.sender) %></p>
 			<p>To: <%= message.recipient.name %></p>
 			<p>Subject: <%= message.subject %></p>
 			<%= simple_format message.body %>
