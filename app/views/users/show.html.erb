@@ -1,6 +1,6 @@
 <div class="m-user-profile col-sm-9 col-sm-offset-1" style="text-align: center">
 	<%= image_tag @user.avatar.url(:medium), class: 'img-responsive center-block' %>
-	<h3><%= @user.name %></h3>
+	<h3><%= @user.name %><%=  ' ('+ @user.reputation.to_s + ')' unless @user.reputation.nil? %></h3>
 	<p><strong><%= @user.email %></strong></p>
 	<%= simple_format @user.description %>
 	<p><%= @user.city %></p>
