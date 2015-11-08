@@ -1,28 +1,7 @@
-== README
+# [Be-able](http://be-able.herokuapp.com)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+No one can do everything, but everyone can do something. Beable is founded on the idea that people with disabilities are people first, and everyone has skills to share.
 
-Things you may want to cover:
+Beable is a marketplace of people and their skills. User build profiles of their skills and needs
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Beable is a marketplace of people and their skills. Need a job done? Post a listing - you can pay for the work directly, or exchange your own skills. Got a skill and some free time? Add your skills to your profile and let users find you.
