@@ -14,10 +14,10 @@
 		<div class="col-sm-3">
 			<div class="well">
 			<% if r.searchable_type == "User" %>
-				<h3><%= link_to r.searchable.name %></h3>
+				<h3><%= link_to r.searchable.name, user_profile_path(r.searchable) %></h3>
 				<%= r.searchable.description.truncate(50) %>
 			<% elsif r.searchable_type == "Listing" %>
-				<h3><%= link_to r.searchable.title %></h3>
+				<h3><%= link_to r.searchable.title, listing_path(r.searchable) %></h3>
 				<%= r.searchable.description.truncate(50) %>
 				<% end %>
 				</div>
