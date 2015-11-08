@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   resources :messages
   get '/users/:id', to: 'users#show', as: 'user_profile'
   get '/users', to: 'users#index', as: 'user_index'
+  post '/search_results', to: 'application#get_search_results'
+  get '/search', to: 'application#search', as: 'search'
 
 end

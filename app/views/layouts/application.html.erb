@@ -26,9 +26,8 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li>
-            <%= link_to 'Listings', listings_path %>
-          </li>
+          <li><%= link_to 'Listings', listings_path %></li>
+          <li><%= link_to 'Search', '/search' %></li>
           <% if current_user %>
             <li><%= link_to 'My Profile', user_profile_path(current_user) %></li>
           	<li><%= link_to 'My Messages', messages_path %></li>
@@ -44,9 +43,9 @@
       </div>
   </div>
 </nav>
-<p class="bg-danger"><%= flash[:error] if flash[:error] %></p>
-<p class="bg-warning"><%= flash[:notice] if flash[:notice] %></p>
 <div class="container">
+  <% if flash[:error] %><div class="bg-danger col-sm-6 center-block col-offset-1 notice"><%= flash[:error] %></div><% end %>
+  <% if flash[:notice] %><div class="bg-warning col-sm-6 center-block col-offset-1 notice"><%= flash[:notice] %></div><% end %>
 	<%= yield %>
 </div>
 </body>

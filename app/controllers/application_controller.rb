@@ -15,6 +15,14 @@ class ApplicationController < ActionController::Base
   def contact
   end
 
+  def search
+    @results = PgSearch.multisearch(params[:q]) if params[:q]
+  end
+
+  def get_search_results
+    redirect_to search_path q: params[:q]
+  end
+
 protected
 
   def configure_permitted_parameters

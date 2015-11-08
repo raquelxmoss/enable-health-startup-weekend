@@ -1,0 +1,31 @@
+<div class="row">
+	<div class="col-sm-6">
+		<%= form_tag '/search_results' do |f| %>
+			<h3>Search:</h3>
+			<%= text_field_tag :q , "", class: 'form-control' %><br />
+			<%= submit_tag "Search", class: 'btn btn-primary' %>
+		<% end %>
+	</div>
+</div>
+<br />
+<% if @results %>
+	<% @results.in_groups_of(4, false) do |group| %>
+		<% group.each do |r| %>
+		<div class="col-sm-3">
+			<div class="well">
+			<% if r.searchable_type == "User" %>
+				<h3><%= link_to r.searchable.name %></h3>
+				<%= r.searchable.description.truncate(50) %>
+			<% elsif r.searchable_type == "Listing" %>
+				<h3><%= link_to r.searchable.title %></h3>
+				<%= r.searchable.description.truncate(50) %>
+				<% end %>
+				</div>
+			</div>
+		<% end %>
+	<% end %>
+<% end %>
+
+<% if params[:q] && @results.empty? %>
+	No results found, sorry!
+<% end %>
